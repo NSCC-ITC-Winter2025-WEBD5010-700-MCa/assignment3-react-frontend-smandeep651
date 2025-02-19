@@ -1,8 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { Outlet } from "react-router-dom";
-import BooksTable from "../components/books/BooksTable"
+import { Outlet,useLocation } from "react-router-dom";
+import BooksTable from "../components/Books/BooksTable"
 
 const Books = () => {
+//get current location informtion
+  const location =useLocation()
+
+  console.log(location.pathname)
 
     const { isPending, error, data: books } = useQuery({
         queryKey: ['booksData'],
@@ -17,14 +21,17 @@ const Books = () => {
 
     return (
       <div>
-        <Outlet />
+      
         <h1 className="text-2xl font-bold">Books</h1>
-        {
-            isPending ?
-            <div>Loading...</div> 
+
+      {location.pathname === '/admin/books'?  isPending ?
+            <div>Loading...</div> :<BooksTable books = {books} />
             :
-            <BooksTable books = {books} />
-        }
+
+            <Outlet />
+
+          }
+       
     </div>
     );
 };
