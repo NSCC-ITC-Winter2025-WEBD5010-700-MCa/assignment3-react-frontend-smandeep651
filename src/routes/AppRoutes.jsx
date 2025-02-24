@@ -7,6 +7,8 @@ import AutoResponse from '../pages/AutoResponse';
 import Customers from '../pages/Customers';
 import Subscriptions from '../pages/Subscriptions';
 import Books from '../pages/Books';
+import BookCreate from '../components/Books/BooksCreate';
+import BookEdit from '../components/Books/BookEdit';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
       {
         path: 'books',
         element: <Books />,
+      },
+      {
+        path: 'books/create',
+        element: <BookCreate />,
+      },
+      {
+        path: '/admin/books/:id/edit',
+        element: <BookEdit />,
       },
     ],
   },

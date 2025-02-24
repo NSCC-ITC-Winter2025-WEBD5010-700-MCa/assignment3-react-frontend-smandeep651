@@ -1,21 +1,29 @@
 
-import { useForm } from "react-hook-form"
+
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useNavigate} from "react-router-dom"
- 
+import BookForm from "./BookForm"
  function BookCreate(){
 
 
-const{register,handleSubmit,formState:{errors}}=useForm()
+
 const queryClient =useQueryClient()
 
 
 const navigate= useNavigate()
 
+const processData =(data)=>{
+
+
+   console.log(data)
+   createBookMutation.mutate(data)
+}
+
 
  const createBookMutation = useMutation({
 
   mutationFn:async(data)=>{
+    console.log(data)
     const response = await fetch ('http://localhost:3000/books',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
@@ -33,17 +41,10 @@ onSuccess : () => {
 
  })
     return(
-        <div>
-            <h2>Create New Book </h2>
-            <form onSubmit={handleSubmit(createBookMutation.mutate)}>
-
-            <input {...register('title',{required:'Title is- required'})} type="text" placeholder="Title" />
-            <input  {...register('author')} type="text" placeholder="Author" />
-            <input {...register('published_year')}  type="text" placeholder="Year" />
-            <input {...register('genre')}  type="text" placeholder="Genre" />
-            <button type='submit'>Create</button>
-            </form> 
-         </div>
+        <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6">
+        <h2 className="text-2xl font-bold mb-4 text-gray-800">Create New Book</h2>
+       <BookForm onDataCollected={processData}/>
+        </div>
     )
 }
 
