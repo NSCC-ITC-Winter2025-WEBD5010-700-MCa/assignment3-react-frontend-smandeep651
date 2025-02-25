@@ -1,16 +1,22 @@
 import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
  
  
 export default function BookForm({ onDataCollection, initialData }){
     const { register, handleSubmit, formState: {errors}, setValue } = useForm();
  
-    if(initialData){
+    useEffect(()=>{//this only runs duringthe initial renedr of the form 
+      console.log('use effect ran',initialData)
+      if(initialData){
         //Pre-populate the form
         setValue('title', initialData.title)
         setValue('author', initialData.author)
         setValue('published_year', initialData.published_year)
         setValue('genre', initialData.genre)
-    }
+    } 
+    },[initialData])
+
+
  
     return (
         <form onSubmit={handleSubmit(onDataCollection)} className="space-y-4">
