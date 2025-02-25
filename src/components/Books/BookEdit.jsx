@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import BookForm from './BookForm';
  
-function BookEdit(){
+export default function BookEdit(){
  
     const { id } = useParams()
     const navigate = useNavigate();
