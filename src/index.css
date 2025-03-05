@@ -17,3 +17,31 @@
 .sidebar:hover {
   width: 256px !important;
 }
+
+
+/* Add this in your global CSS or within a CSS module */
+.container {
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.site-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.site-card h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.site-card p {
+  margin: 5px 0;
+}

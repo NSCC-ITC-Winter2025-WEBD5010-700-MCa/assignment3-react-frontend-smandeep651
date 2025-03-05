@@ -9,6 +9,7 @@ import {
   faArrowLeft,
   faArrowRight,
   faBook,
+  faBuilding, // Add the building icon for Sites
 } from '@fortawesome/free-solid-svg-icons';
 
 const SidebarItem = ({ href, label, isCollapsed, icon }) => {
@@ -44,7 +45,9 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => {
     { href: '/admin/customers', label: 'Customers', icon: faUsers },
     { href: '/admin/auto-response', label: 'Auto Response', icon: faReply },
     { href: '/admin/subscriptions', label: 'Subscriptions', icon: faBoxOpen },
-    {href: '/admin/books',label:'Books',icon:faBook}
+    { href: '/admin/books', label: 'Books', icon: faBook },
+    // Sites route
+    { href: '/admin/sites', label: 'Sites', icon: faBuilding },
   ];
 
   return (
