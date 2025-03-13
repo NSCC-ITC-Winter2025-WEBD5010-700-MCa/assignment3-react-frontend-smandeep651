@@ -584,10 +584,11 @@
     },
     {
       "id": "1166",
-      "project_name": "hello",
+      "project_name": "hello edit",
       "city": "halifax",
       "general_contractor": "nscc",
-      "completion_date": "1"
+      "completion_date": "1",
+      "status": "completed"
     }
   ]
 }

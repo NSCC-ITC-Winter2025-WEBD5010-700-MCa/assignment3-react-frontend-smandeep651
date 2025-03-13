@@ -45,12 +45,12 @@ export default function SiteForm({ onDataCollection, initialData }) {
             </div>
             <div>
                 <input
-                    {...register('completion_date', { required: 'Completion date is required!' })}
-                    type="number"
-                    placeholder="Completion Date"
+                    {...register('status', { required: 'Status is required!' })}
+                    type="string"
+                    placeholder="Status"
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
-                {errors.completion_date && <p className="text-red-500 text-sm">{errors.completion_date.message}</p>}
+                {errors.status && <p className="text-red-500 text-sm">{errors.status.message}</p>}
             </div>
             <button
                 type="submit"

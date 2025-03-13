@@ -31,7 +31,7 @@ const SitesTable = ({ sites }) => {
             <p className="mb-4">
                 <Link 
                     to="/admin/sites/create"
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md shadow-md transition-all"
+                    className="bg-blue-600 hover:bg-blue-700 text-white  font-semibold py-1 px-4 rounded-md shadow-md transition-all"
                 >
                     Add New Site
                 </Link>
