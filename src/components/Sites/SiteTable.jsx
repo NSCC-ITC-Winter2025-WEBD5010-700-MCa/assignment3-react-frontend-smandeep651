@@ -28,7 +28,14 @@ const SitesTable = ({ sites }) => {
 
     return (
         <>
-            <p><Link to="/admin/sites/create">Add New Site</Link></p>
+            <p className="mb-4">
+                <Link 
+                    to="/admin/sites/create"
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md shadow-md transition-all"
+                >
+                    Add New Site
+                </Link>
+            </p>
             <table className="w-full border-collapse border border-gray-200">
                 <thead className="bg-gray-200">
                     <tr>
@@ -48,9 +55,19 @@ const SitesTable = ({ sites }) => {
                             <td className="border border-gray-300 px-4 py-2">{site.city}</td>
                             <td className="border border-gray-300 px-4 py-2">{site.general_contractor}</td>
                             <td className="border border-gray-300 px-4 py-2">{site.status}</td>
-                            <td className="border border-gray-300 px-4 py-2">
-                                <button onClick={() => navigate(`/admin/sites/${site.id}/edit`)}>Edit</button>
-                                <button onClick={() => handleDelete(site.id)}>Delete</button>
+                            <td className="border border-gray-300 px-4 py-2 flex gap-2">
+                                <button 
+                                    onClick={() => navigate(`/admin/sites/${site.id}/edit`)} 
+                                    className="bg-green-600 hover:bg-green-700 text-white font-semibold py-1 px-3 rounded-md shadow-md transition-all"
+                                >
+                                    Edit
+                                </button>
+                                <button 
+                                    onClick={() => handleDelete(site.id)} 
+                                    className="bg-red-600 hover:bg-red-700 text-white font-semibold py-1 px-3 rounded-md shadow-md transition-all"
+                                >
+                                    Delete
+                                </button>
                             </td>
                         </tr>
                     ))}

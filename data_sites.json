@@ -6,7 +6,7 @@
       },
       "project_name": "Mills",
       "city": "Halifax",
-      "general_contractor": "Lindsay",
+      "general_contractor": "bird",
       "completion_date": 2025,
       "status": "in progress",
       "employees_for_project": [
@@ -583,28 +583,11 @@
       "id": "efb4"
     },
     {
-      "id": "75af",
-      "name": "",
-      "description": "",
-      "location": ""
-    },
-    {
-      "id": "5337",
-      "name": "",
-      "description": "",
-      "location": ""
-    },
-    {
-      "id": "76ff",
-      "name": "",
-      "description": "",
-      "location": ""
-    },
-    {
-      "id": "e308",
-      "name": "maitland",
-      "description": "hello from maitland",
-      "location": "halifax"
+      "id": "1166",
+      "project_name": "hello",
+      "city": "halifax",
+      "general_contractor": "nscc",
+      "completion_date": "1"
     }
   ]
 }
