@@ -14,6 +14,10 @@ const SiteCreate = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
+
+            if (!response.ok) {
+                throw new Error('Error creating site');
+            }
             return response.json();  // Return the newly created site
         },
         onSuccess: () => {
@@ -35,14 +39,6 @@ const SiteCreate = () => {
         <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6">
             <h2 className="text-xl font-semibold text-center">Create a New Site</h2>
             <SiteForm onDataCollection={handleCreateSite} />
-            <div className="text-center mt-6">
-                <button
-                    onClick={() => handleCreateSite()}  // Handle button click
-                    className="w-full py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
-                >
-                    Create Site
-                </button>
-            </div>
         </div>
     );
 };

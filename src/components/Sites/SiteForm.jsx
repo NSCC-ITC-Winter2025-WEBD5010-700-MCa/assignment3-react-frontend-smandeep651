@@ -45,11 +45,26 @@ export default function SiteForm({ onDataCollection, initialData }) {
             </div>
             <div>
                 <input
-                    {...register('status', { required: 'Status is required!' })}
-                    type="text"
-                    placeholder="Status"
+                    {...register('completion_date', { 
+                        required: 'Completion date is required!',
+                        valueAsNumber: true, // Ensure it's converted to a number
+                    })}
+                    type="number"
+                    placeholder="Completion Date (Year)"
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
+                {errors.completion_date && <p className="text-red-500 text-sm">{errors.completion_date.message}</p>}
+            </div>
+            <div>
+                <select
+                    {...register('status', { required: 'Status is required!' })}
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                >
+                    <option value="">Select Status</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Not Started">Not Started</option>
+                </select>
                 {errors.status && <p className="text-red-500 text-sm">{errors.status.message}</p>}
             </div>
             <button
