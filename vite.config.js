@@ -18,4 +18,8 @@ export default defineConfig({
       include: "**/*.svg",
     }),
   ],
+  server: {
+    port: process.env.PORT || 5173, // Use the dynamic port provided by Render or fallback to 5173 for local development
+    host: '0.0.0.0', // Make the app accessible to external networks (needed for Render)
+  },
 })
