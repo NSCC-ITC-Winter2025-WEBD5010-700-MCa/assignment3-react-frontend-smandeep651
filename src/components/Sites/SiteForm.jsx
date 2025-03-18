@@ -12,7 +12,7 @@ export default function SiteForm({ onDataCollection, initialData }) {
             setValue('completion_date', initialData.completion_date);
             setValue('status', initialData.status);
         }
-    }, [initialData]);
+    }, [initialData, setValue]);
 
     return (
         <form onSubmit={handleSubmit(onDataCollection)} className="space-y-4">
@@ -46,7 +46,7 @@ export default function SiteForm({ onDataCollection, initialData }) {
             <div>
                 <input
                     {...register('status', { required: 'Status is required!' })}
-                    type="string"
+                    type="text"
                     placeholder="Status"
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
@@ -56,7 +56,7 @@ export default function SiteForm({ onDataCollection, initialData }) {
                 type="submit"
                 className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
             >
-                Submit
+                Submit Changes
             </button>
         </form>
     );

@@ -5,9 +5,10 @@ const SitesTable = ({ sites }) => {
     const navigate = useNavigate();
     const queryClient = useQueryClient();
 
+    // Delete site mutation
     const deleteSiteMutation = useMutation({
         mutationFn: async (siteId) => {
-            const response = await fetch(`${import.meta.env.VITE_SITE_API_URL}/${siteId}`, {
+            const response = await fetch(`https://data-sites2.onrender.com/api/project_sites/${siteId}`, {
                 method: 'DELETE'
             });
             return response.json();
@@ -49,21 +50,21 @@ const SitesTable = ({ sites }) => {
                 </thead>
                 <tbody>
                     {sites.map(site => (
-                        <tr key={site.id} className="hover:bg-gray-100">
-                            <td className="border border-gray-300 px-4 py-2">{site.id}</td>
+                        <tr key={site._id} className="hover:bg-gray-100">
+                            <td className="border border-gray-300 px-4 py-2">{site._id}</td>
                             <td className="border border-gray-300 px-4 py-2">{site.project_name}</td>
                             <td className="border border-gray-300 px-4 py-2">{site.city}</td>
                             <td className="border border-gray-300 px-4 py-2">{site.general_contractor}</td>
                             <td className="border border-gray-300 px-4 py-2">{site.status}</td>
                             <td className="border border-gray-300 px-4 py-2 flex gap-2">
-                                <button 
-                                    onClick={() => navigate(`/admin/sites/${site.id}/edit`)} 
+                                <Link 
+                                    to={`/admin/sites/${site._id}/edit`} 
                                     className="bg-green-600 hover:bg-green-700 text-white font-semibold py-1 px-3 rounded-md shadow-md transition-all"
                                 >
                                     Edit
-                                </button>
+                                </Link>
                                 <button 
-                                    onClick={() => handleDelete(site.id)} 
+                                    onClick={() => handleDelete(site._id)} 
                                     className="bg-red-600 hover:bg-red-700 text-white font-semibold py-1 px-3 rounded-md shadow-md transition-all"
                                 >
                                     Delete
